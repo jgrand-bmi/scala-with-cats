@@ -1,5 +1,9 @@
 package c1
 
+import cats.Show
+import cats.syntax.show._
+import cats.instances.int._
+import cats.instances.string._
 
 /*
 
@@ -73,6 +77,15 @@ object PrintableInstances {
       override def format(value: Cat): String =
         s"${Printable.format(value.name)} is a ${Printable.format(value.age)} year-old ${Printable.format(value.color)} cat"
     }
+  }
+}
+
+object ShowInstances {
+  implicit val catShow: Show[Cat] = Show.show[Cat] {cat =>
+    val name = cat.name.show
+    val age = cat.age.show
+    val color = cat.color.show
+    s"$name is a $age year-old $color cat"
   }
 }
 

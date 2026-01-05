@@ -1,9 +1,7 @@
 package c1
 
-import PrintableInstances._
-import PrintableSyntax._
-
-//import java.util.Date
+import ShowInstances._
+import cats.implicits.toShow
 
 object Main extends App {
   val fry = Cat("Fry", 2, "Orange")
@@ -11,8 +9,8 @@ object Main extends App {
 //  Printable.print(fry)
 //  Printable.print(bender)
 
-  fry.print
-  bender.print
+  println(fry.show)
+  println(bender.show)
 
 //  new Date().print
 }
